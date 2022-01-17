@@ -1,3 +1,5 @@
+#include "loadGame.h"
+#include "hooks.h"
 #if ANNIVERSARY_EDITION
 
 extern "C" DLLEXPORT constinit auto SKSEPlugin_Version = []()
@@ -57,6 +59,13 @@ extern "C" DLLEXPORT bool SKSEAPI SKSEPlugin_Load(const SKSE::LoadInterface* a_s
 	INFO("{} v{} loaded", Version::PROJECT, Version::NAME);
 
 	SKSE::Init(a_skse);
-
+	auto g_message = SKSE::GetMessagingInterface();
+	if (!g_message) {
+		ERROR("Messaging Interface Not Found!");
+		return false;
+	}
+	g_message->RegisterListener(loadGame::EventCallBACK);
+	hitEventHook::InstallHook();
+	
 	return true;
 }

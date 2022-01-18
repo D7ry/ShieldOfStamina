@@ -13,12 +13,14 @@ void hitEventHook::processHit(RE::Actor* target, RE::HitData& hitData) {
 	int hitFlag = (int)hitData.flags;
 	using HITFLAG = RE::HitData::Flag;
 	if (!(hitFlag & (int)HITFLAG::kBlocked)) {
+		_ProcessHit(target, hitData);
 		return;
 	}
 
 	//nullPtr check in case Skyrim fucks up
 	auto aggressor = hitData.aggressor.get();
 	if (!target || !aggressor) {
+		_ProcessHit(target, hitData);
 		return;
 	}
 

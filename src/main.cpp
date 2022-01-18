@@ -1,4 +1,3 @@
-#include "loadGame.h"
 #include "hooks.h"
 #include "dataHandler.h"
 #if ANNIVERSARY_EDITION

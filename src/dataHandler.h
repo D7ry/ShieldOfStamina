@@ -9,9 +9,15 @@ public:
 
 namespace settings 
 {
-	extern float bckWpnStaminaPenaltyMultPlayer;
-	extern float bckWpnStaminaPenaltyMultNPC;
-	extern float bckShdStaminaPenaltyMultPlayer;
-	extern float bckShdStaminaPenaltyMultNPC;
+	extern float bckShdStaminaMult_PC_Block_NPC;
+	extern float bckWpnStaminaMult_PC_Block_NPC;
+
+	extern float bckShdStaminaMult_NPC_Block_PC; //stamina penalty mult for NPCs blockign a player hit with a shield
+	extern float bckWpnStaminaMult_NPC_Block_PC;
+
+	extern float bckShdStaminaMult_NPC_Block_NPC;
+	extern float bckWpnStaminaMult_NPC_Block_NPC;
+
 	extern bool guardBreak;
+	extern bool noRegenOnBlock;
 }

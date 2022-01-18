@@ -6,7 +6,7 @@ namespace loadGame {
 	{
 		if (msg->type == SKSE::MessagingInterface::kDataLoaded) {
 			INFO("data loaded, initializing...");
-			dataHandler::readSettings();
+			
 			INFO("initialization complete!");
 		}
 	}

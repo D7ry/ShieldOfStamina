@@ -6,18 +6,28 @@ void dataHandler::readSettings() {
 	CSimpleIniA ini;
 #define SETTINGFILE_PATH "Data\\SKSE\\Plugins\\ShieldOfStamina.ini"
 	ini.LoadFile(SETTINGFILE_PATH);
-	bckWpnStaminaPenaltyMultPlayer = static_cast<float>(ini.GetLongValue("General", "bckWpnStaminaPenaltyMultPlayer", 1));
-	bckWpnStaminaPenaltyMultNPC = static_cast<float>(ini.GetLongValue("General", "bckWpnStaminaPenaltyMultNPC", 1));
-	bckShdStaminaPenaltyMultPlayer = static_cast<float>(ini.GetLongValue("General", "bckShdStaminaPenaltyMultPlayer", 1));
-	bckShdStaminaPenaltyMultNPC = static_cast<float>(ini.GetLongValue("General", "bckShdStaminaPenaltyMultNPC", 1));
+	bckShdStaminaMult_PC_Block_NPC = static_cast<float>(ini.GetLongValue("General", "bckShdStaminaMult_PC_Block_NPC", 1));
+	bckWpnStaminaMult_PC_Block_NPC = static_cast<float>(ini.GetLongValue("General", "bckWpnStaminaMult_PC_Block_NPC", 1));
+	bckShdStaminaMult_NPC_Block_PC = static_cast<float>(ini.GetLongValue("General", "bckShdStaminaMult_NPC_Block_PC", 1));
+	bckWpnStaminaMult_NPC_Block_PC = static_cast<float>(ini.GetLongValue("General", "bckWpnStaminaMult_NPC_Block_PC", 1));
+	bckShdStaminaMult_NPC_Block_NPC = static_cast<float>(ini.GetLongValue("General", "bckShdStaminaMult_NPC_Block_NPC", 1));
+	bckWpnStaminaMult_NPC_Block_NPC = static_cast<float>(ini.GetLongValue("General", "bckWpnStaminaMult_NPC_Block_NPC", 1));
+
 	guardBreak = ini.GetBoolValue("General", "GuardBreak", true);
+	noRegenOnBlock = ini.GetBoolValue("General", "noRegenOnBlock", true);
 }
 
 namespace settings
 {
-	float bckWpnStaminaPenaltyMultPlayer = 1;
-	float bckWpnStaminaPenaltyMultNPC = 1;
-	float bckShdStaminaPenaltyMultPlayer = 1;
-	float bckShdStaminaPenaltyMultNPC = 1;
+	float bckShdStaminaMult_PC_Block_NPC = 1;
+	float bckWpnStaminaMult_PC_Block_NPC = 1;
+
+	float bckShdStaminaMult_NPC_Block_PC = 1; //stamina penalty mult for NPCs blockign a player hit with a shield
+	float bckWpnStaminaMult_NPC_Block_PC = 1;
+
+	float bckShdStaminaMult_NPC_Block_NPC = 1;
+	float bckWpnStaminaMult_NPC_Block_NPC = 1;
+
 	bool guardBreak = true;
+	bool noRegenOnBlock = true;
 }
